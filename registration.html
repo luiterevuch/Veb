@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    
+<header>
+    <h1>Фан-клуб | ФК Барселона</h1>
+    <p class="header-subtitle">Приєднуйтесь до офіційної спільноти вболівальників</p>
+</header>
+
+<section class="example-layout">
+    <div class="text-and-images">
+        <img src="https://www.shutterstock.com/image-photo/spanish-football-club-fc-barcelona-260nw-2585750083.jpg" class="float-left" alt="Логотип ФК Барселона" width="80">
+        <p>
+            ФК Барселона — один з найтитулованіших футбольних клубів світу, заснований у 1899 році. 
+            Клуб відомий своєю філософією «тікі-така» — красивим і технічним футболом, який захоплює мільйони 
+            вболівальників по всьому світу. Барселона виграла понад 90 трофеїв, включаючи 5 Ліг чемпіонів УЄФА 
+            та 27 чемпіонатів Іспанії. Домашня арена клубу — легендарний стадіон «Камп Ноу», який вміщує понад 
+            99 тисяч глядачів і є найбільшим футбольним стадіоном в Європі.
+        </p>
+        <img src="https://s-cdn.sportbox.ru/images/styles/1200-auto/fp_fotos/74/f3/fa65b3f3eb0c8668717540657592405e6789218eee4ef514422090.jpg" class="float-right" alt="Стадіон Камп Ноу" width="120">
+        <p>
+            Клубний девіз «Més que un club» (Більше, ніж клуб) підкреслює особливу роль Барселони в житті Каталонії. 
+            Протягом своєї історії команду представляли футбольні легенди: Йоган Кройф, Роналдіньо, Ліонель Мессі, 
+            Хаві Ернандес та Андрес Іньєста. Сьогодні молоде покоління на чолі з Педрі продовжує славні традиції клубу, 
+            демонструючи яскравий атакувальний футбол та технічну майстерність на найвищому рівні.
+        </p>
+        <div style="clear: both;"></div>
+        <img src="https://footykits.ru/wp-content/uploads/2015/05/FC-Barcelona-15-16-Home-Kit.jpg" alt="Легенди Барселони" class="block-img" width="200">
+    </div>
+</section>
+
+<main class="forms-page-container">
+
+<div class="tab-system">
+    <input type="radio" name="tab-control" id="tab-reg" checked>
+    <input type="radio" name="tab-control" id="tab-login">
+    <input type="radio" name="tab-control" id="tab-feedback">
+
+    <div class="tab-controls forms-nav">
+        <label for="tab-reg">Форма реєстрації</label>
+        <label for="tab-login">Форма входу</label>
+        <label for="tab-feedback">Зворотній зв'язок</label>
+    </div>
+
+    <div class="forms-wrapper">
+
+        <!-- Форма реєстрації -->
+        <form id="registration" action="/register" method="POST" enctype="multipart/form-data" class="form-content form-registration">
+            <fieldset>
+                <legend>Реєстрація у фан-клубі Педрі</legend>
+                
+                <div class="form-two-columns">
+                    <!-- Ліва колонка -->
+                    <div class="form-left-column">
+                        <div class="avatar-placeholder">
+                            <div class="avatar-circle">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" class="user-icon">
+                                    <circle cx="50" cy="35" r="18" fill="#666"/>
+                                    <path d="M 20 85 Q 20 60 50 60 Q 80 60 80 85" fill="#666"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <label for="reg_name">Ім'я</label>
+                        <input type="text" id="reg_name" name="name" placeholder="Ім'я" required>
+
+                        <label for="surname">Прізвище</label>
+                        <input type="text" id="surname" name="surname" placeholder="Прізвище" required>
+
+                        <label class="group-label">Стать</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Чоловік" required>
+                                <span class="radio-custom"></span>
+                                <span>Чоловіча</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="gender" value="Жінка">
+                                <span class="radio-custom"></span>
+                                <span>Жіноча</span>
+                            </label>
+                        </div>
+
+                        <div class="age-date-group">
+                            <div class="age-field">
+                                <label for="age">Вік</label>
+                                <input type="number" id="age" name="age" min="18" max="100" value="21" required>
+                            </div>
+                            <div class="date-field">
+                                <label for="birthdate">Дата народження</label>
+                                <input type="date" id="birthdate" name="birthdate" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Права колонка -->
+                    <div class="form-right-column">
+                        <label for="country">Країна проживання</label>
+                        <select id="country" name="country" required>
+                            <option value="" disabled selected>Оберіть країну проживання</option>
+                            <option value="UA">Україна</option>
+                            <option value="ES">Іспанія</option>
+                            <option value="PL">Польща</option>
+                            <option value="FR">Франція</option>
+                            <option value="DE">Німеччина</option>
+                            <option value="OT">Інша країна</option>
+                        </select>
+
+                        <label for="phone">Номер телефону</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+38(0XX)XXX-XX-XX" pattern="^\+38\(\d{3}\)\d{3}-\d{2}-\d{2}$" title="+38(XXX)XXX-XX-XX" required>
+
+                        <label for="social">Соцмережі</label>
+                        <input type="url" id="social" name="social" placeholder="Посилання на соц.мережу">
+
+                        <label for="reg_email">Електронна пошта</label>
+                        <input type="email" id="reg_email" name="email" placeholder="Ел. пошта" required>
+
+                        <label for="reg_password">Пароль</label>
+                        <input type="password" id="reg_password" name="password" placeholder="Пароль" minlength="8" required>
+
+                        <div class="bottom-actions">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="remember_cloud" name="remember_cloud">
+                                <span>Чи згідні Ви з умовами?</span>
+                            </label>
+                            <button type="submit">Зареєструватися</button>
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </form>
+
+        <!-- Форма входу -->
+        <form id="login" action="/login" method="POST" class="form-content form-login">
+            <fieldset>
+                <legend>Форма входу</legend>
+                
+                <label for="login_user">Логін</label>
+                <input type="text" id="login_user" name="login" placeholder="Логін" required>
+                
+                <label for="login_password">Пароль</label>
+                <input type="password" id="login_password" name="password" placeholder="Пароль" required>
+
+                <div class="login-actions">
+                    <button type="submit">Вхід</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <!-- Форма зворотного зв'язку -->
+        <form id="feedback" action="/feedback" method="POST" class="form-content form-feedback">
+            <fieldset>
+                <legend>Форма зворотного зв'язку</legend>
+                
+                <div class="feedback-layout">
+                    <div class="feedback-left">
+                        <label for="fback_name">Ім'я</label>
+                        <input type="text" id="fback_name" name="name" placeholder="Ім'я" required>
+                        
+                        <label for="fback_email">Ел. пошта</label>
+                        <input type="email" id="fback_email" name="email" placeholder="Ел. пошта" required>
+                        
+                        <label for="fback_topic">Тема повідомлення</label>
+                        <select id="fback_topic" name="topic" required>
+                            <option value="" disabled selected>Тема повідомлення</option>
+                            <option value="General">Загальне питання</option>
+                            <option value="Support">Технічна підтримка</option>
+                            <option value="Suggestion">Пропозиція або ідея</option>
+                            <option value="Complaint">Скарга</option>
+                            <option value="Partnership">Співпраця</option>
+                        </select>
+
+                        <button type="submit">Відправити</button>
+                    </div>
+
+                    <div class="feedback-right">
+                        <label for="fback_message">Повідомлення</label>
+                        <textarea id="fback_message" name="message" rows="10" placeholder="Повідомлення" required></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+    </div>
+</div>
+
+</main>
+
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2025 | <a href="https://www.instagram.com/pedri/" target="_blank">Instagram</a> | <a href="mailto:pedri@barca.com">pedri@barca.com</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

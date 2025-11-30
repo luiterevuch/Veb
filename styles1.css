@@ -1,0 +1,461 @@
+/* ============================================= */
+/* ГЛОБАЛЬНІ ЗМІННІ */
+/* ============================================= */
+:root {
+    --main-bg: #f0f0f0;
+    --main-content-bg: white;
+    --border-color: #ccc;
+    --reg-form-bg: #c0e0ff;
+    --login-form-bg: #e0ffc0;
+    --feedback-form-bg: #ffffe0;
+    --primary-action: #007bff;
+    --note-bg: #ffffe0;
+}
+
+/* ============================================= */
+/* БАЗОВІ СТИЛІ */
+/* ============================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg);
+}
+
+/* ============================================= */
+/* HEADER */
+/* ============================================= */
+header {
+    text-align: center;
+    padding: 20px 15px;
+    background-color: #4a4a4a;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0 0 8px 0;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+header .header-subtitle {
+    margin: 0;
+    font-size: 1em;
+    opacity: 0.95;
+}
+
+/* ============================================= */
+/* SECTION З ТЕКСТОМ */
+/* ============================================= */
+.example-layout {
+    padding: 30px 20px;
+    background-color: #fff;
+    line-height: 1.8;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.text-and-images p {
+    text-align: justify;
+    font-size: 1.05em;
+    margin-bottom: 20px;
+    color: #2a2a2a;
+}
+
+.text-and-images img {
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.text-and-images img.float-left {
+    float: left;
+    margin: 0 20px 15px 0;
+    width: 175px;
+}
+
+.text-and-images img.float-right {
+    float: right;
+    margin: 0 0 15px 20px;
+    width: 380px;
+}
+
+.text-and-images .block-img {
+    display: block;
+    clear: both;
+    margin: 30px auto 0;
+    width: 400px;
+}
+
+/* ============================================= */
+/* ТАБИ */
+/* ============================================= */
+.tab-system input[type="radio"] {
+    display: none;
+}
+
+.forms-nav {
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    background-color: var(--main-content-bg);
+    z-index: 10;
+}
+
+.tab-controls label {
+    flex: 1;
+    padding: 15px 10px;
+    border-bottom: 3px solid transparent;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.tab-controls label:hover {
+    background-color: #eee;
+}
+
+#tab-reg:checked ~ .forms-nav label[for="tab-reg"],
+#tab-login:checked ~ .forms-nav label[for="tab-login"],
+#tab-feedback:checked ~ .forms-nav label[for="tab-feedback"] {
+    background-color: white;
+    border-bottom-color: var(--primary-action);
+    color: var(--primary-action);
+}
+
+#tab-reg:checked ~ .forms-wrapper #registration,
+#tab-login:checked ~ .forms-wrapper #login,
+#tab-feedback:checked ~ .forms-wrapper #feedback {
+    display: block;
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ============================================= */
+/* ФОРМИ - БАЗОВІ СТИЛІ */
+/* ============================================= */
+.forms-page-container {
+    max-width: 100%;
+    margin: 20px auto;
+    background-color: var(--main-content-bg);
+}
+
+.forms-wrapper {
+    position: relative;
+    padding: 20px;
+    min-height: 500px;
+}
+
+.form-content {
+    display: none;
+}
+
+fieldset {
+    border: 2px solid var(--border-color);
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-action);
+    padding: 0 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+select, 
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary-action);
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+/* ============================================= */
+/* ФОРМА РЕЄСТРАЦІЇ */
+/* ============================================= */
+.form-registration fieldset {
+    background-color: var(--reg-form-bg);
+}
+
+.form-two-columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.form-left-column,
+.form-right-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Аватар */
+.avatar-placeholder {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #333;
+    background-color: #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.user-icon {
+    width: 80%;
+    height: 80%;
+}
+
+/* Radio кнопки */
+.radio-group {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 15px;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    cursor: pointer;
+    position: relative;
+}
+
+.radio-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radio-custom {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: white;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.radio-label input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #333;
+}
+
+/* Вік та дата */
+.age-date-group {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 10px;
+}
+
+.age-field,
+.date-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.age-field input,
+.date-field input {
+    width: 100%;
+}
+
+/* Нижні елементи */
+.bottom-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+}
+
+/* Нотатка */
+.form-footer-note {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: var(--note-bg);
+    border: 1px solid #e0e0a0;
+    border-radius: 5px;
+}
+
+.note-text {
+    margin: 0;
+    font-size: 0.85em;
+    line-height: 1.5;
+}
+
+/* ============================================= */
+/* ФОРМА ВХОДУ */
+/* ============================================= */
+.form-login fieldset {
+    background-color: var(--login-form-bg);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.login-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-actions button {
+    min-width: 150px;
+}
+
+/* ============================================= */
+/* ФОРМА ЗВОРОТНОГО ЗВ'ЯЗКУ */
+/* ============================================= */
+.form-feedback fieldset {
+    background-color: var(--feedback-form-bg);
+}
+
+.feedback-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 30px;
+}
+
+.feedback-left,
+.feedback-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback-right textarea {
+    flex: 1;
+    resize: vertical;
+    min-height: 200px;
+}
+
+/* ============================================= */
+/* КНОПКИ */
+/* ============================================= */
+button {
+    padding: 10px 20px;
+    background-color: var(--primary-action);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95em;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ============================================= */
+/* FOOTER */
+/* ============================================= */
+footer {
+    text-align: center;
+    padding: 15px 20px;
+    background-color: #0066cc;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95em;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+footer a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* ============================================= */
+/* АДАПТИВНІСТЬ */
+/* ============================================= */
+@media (max-width: 768px) {
+    .form-two-columns,
+    .feedback-layout,
+    .age-date-group {
+        grid-template-columns: 1fr;
+    }
+
+    .feedback-layout,
+    .age-date-group {
+        gap: 20px;
+    }
+
+    .bottom-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+    }
+}
