@@ -458,3 +458,25 @@ footer a:hover {
         gap: 15px;
     }
 }
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6em;
+    }
+    .tab-controls label {
+        padding: 10px 5px;
+        font-size: 0.8em;
+    }
+    fieldset {
+        padding: 15px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .example-layout {
+        padding: 30px 50px; 
+    }
+    .form-two-columns {
+        grid-template-columns: 1.5fr 1fr; 
+    }
+}
